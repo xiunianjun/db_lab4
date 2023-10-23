@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
   <div class="container">
     <div class="row">
@@ -42,9 +41,12 @@
             {% endfor %}
           </div>
         </span>
-
-          <a href="/dish/submit_order/" class="btn btn-primary pull-right">提交订单</button>
     </div>
   </div>
 </div>
+
+<span class="border border-secondary">
+  <a href="/dish/submit_order/" class="btn pull-right">提交订单</button>
+</span>
+
 {% endblock %}

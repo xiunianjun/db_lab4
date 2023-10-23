@@ -48,7 +48,6 @@ THUMBNAIL_PROCESSORS = (
 
 INSTALLED_APPS = [
     'djangocms_admin_style',
-    # 'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,8 +58,6 @@ INSTALLED_APPS = [
     'canteen',
     'customer',
     'dish',
-    'canteen_cms_integration',
-    'form_cms_integrate',
     
     'django.contrib.sites',
     'cms',
@@ -71,16 +68,7 @@ INSTALLED_APPS = [
     'filer',
     'easy_thumbnails',
     'mptt',
-    'djangocms_forms',
-    
-    'djangocms_text_ckeditor',
         
-    'djangocms_link',
-    'djangocms_file',
-    'djangocms_picture',
-    'djangocms_video',
-    'djangocms_googlemap',
-    'djangocms_snippet',
     'djangocms_style',
     # 'order',
 ]
@@ -125,9 +113,6 @@ TEMPLATES = [
                 'cms.context_processors.cms_settings',
                 'django.template.context_processors.i18n',
             ],
-            # 'builtins': [
-            #     'django.templatetags.static'
-            # ],
         },
     },
 ]

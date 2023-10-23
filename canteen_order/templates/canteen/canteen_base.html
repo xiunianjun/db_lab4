@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <div class="container">
+    <div class="row">
+      {% for i in canteen_list %}
+        <span class="border border-secondary">
+          <h3>这是{{ i.canteen_name }}，有如下窗口，欢迎品尝！</h3>
+          <div class="card-group">
+          {% for j in store_list %}
+          {% if j.canteen_id == i.canteen_id %}
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ j.store_name }}</h5>
+                <a href="/dish/store?store_id={{j.store_id}}" class="btn btn-primary">进入窗口</a>
+              </div>
+            </div>
+          {% endif %}
+          {% endfor %}
+          </div>
+          </span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

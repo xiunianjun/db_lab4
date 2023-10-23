@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container formback">
+  <div class="loginform jumbotron">
+    <h3>Register</h3>
+<!--    <div class="container">-->
+<!--        <div class="col-md-4 col-md-offset-4">-->
+          <form class='form-register' action="/customer/register/" method="post">
+
+              <h5>{{ message }}</h5>
+
+              {% csrf_token %}
+              <div class="form-group">
+                  <div class="text-left"><label for="InputUsername">用户名:</label></div>
+                  {{ register_form.username}}
+              </div>
+              <div class="form-group">
+                  <div class="text-left"><label for="InputPassword">密码：</label></div>
+                  {{ register_form.password1 }}
+              </div>
+              <div class="form-group">
+                  <div class="text-left"><label for="InputUsername">确认密码:</label></div>
+                  {{ register_form.password2 }}
+              </div>
+
+              <button type="submit" class="btn btn-primary pull-right">注册</button>
+
+          </form>
+        </div>
+    </div> <!-- /container -->
+{% endblock %}

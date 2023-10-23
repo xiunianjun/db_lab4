@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <div class="container">
+    <div class="row">
+        <span class="border border-secondary">
+          <h3>所有订单：</h3>
+          <div class="card-group">
+            {% for j in order_list %}
+              <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="Card image cap">
+                  <div class="card-body">
+                  <h5 class="card-title">{{ j.order_id }}</h5>
+                  <p class="card-text">下单内容：{{ j.dish_list }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  <li class="list-group-item">下单时间：{{ j.create_time }}</li>
+                  <li class="list-group-item">总价：{{ j.total }}</li>
+                  <li class="list-group-item">下单用户：{{ j.user }}</li>
+                  </ul>
+                  <div class="card-body">
+                      {% if j.status %}
+                      {% else %}
+                      <a href="/dish/receive_order?order_id={{ j.order_id }}" class="btn btn-primary pull-right">接单</button>
+                      {% endif %}
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        </span>
+    </div>
+  </div>
+</div>
+{% endblock %}

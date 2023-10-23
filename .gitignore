@@ -1,0 +1,14 @@
+canteen_order/static/*
+canteen_order/static_root/*
+canteen_order/admin_bootstrap/*
+__pycache__/
+migrations/
+!migrations/__init__.py
+.env
+venv/
+env/
+bin/
+lib/
+include/
+.idea/
+.vscode/

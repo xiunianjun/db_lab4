@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <div class="container">
+    <div class="row">
+        <span class="border border-secondary">
+          <h3>有如下菜品，欢迎品尝！</h3>
+          <div class="card-group">
+            {% for j in dish_list %}
+              <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="Card image cap">
+                  <div class="card-body">
+                  <h5 class="card-title">{{ j.dish_name }}</h5>
+                  <p class="card-text">原材料：{{ j.dish_intro }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  <li class="list-group-item">价格：{{ j.dish_price }}</li>
+                  <li class="list-group-item">销量：{{ j.dish_sales }}</li>
+                  <li class="list-group-item">库存：{{ j.dish_store }}</li>
+                  </ul>
+                  <div class="card-body">
+                    <form class='form-group' action="/dish/get_order/" method="get">
+                      {% csrf_token %}
+                      <div class="form-group">
+                          <input type="hidden" name="dish_id" value="{{ j.dish_id }}"/>
+                          <input type="text" name="count">
+                      </div>
+                      <button type="submit" class="btn btn-primary pull-right">放入购物车</button>
+                    </form>
+
+                    <form class='form-group' action="/dish/del_order/" method="get">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <input type="hidden" name="dish_id" value="{{ j.dish_id }}"/>
+                        <input type="text" name="count">
+                      </div>
+                      <button type="submit" class="btn btn-primary pull-right">从购物车删除</button>
+                    </form>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        </span>
+
+          <a href="/dish/submit_order/" class="btn btn-primary pull-right">提交订单</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

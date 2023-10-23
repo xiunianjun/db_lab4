@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <div class="container">
+    <div class="row">
+        <span class="border border-secondary">
+          <h3>菜品列表：</h3>
+          <div class="card-group">
+            {% for j in dish_list %}
+              <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="Card image cap">
+                  <div class="card-body">
+                  <h5 class="card-title">{{ j.dish_name }}</h5>
+                  <p class="card-text">原材料：{{ j.dish_intro }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  <li class="list-group-item">价格：{{ j.dish_price }}</li>
+                  <li class="list-group-item">销量：{{ j.dish_sales }}</li>
+                  <li class="list-group-item">库存：{{ j.dish_store }}</li>
+                  </ul>
+                  <div class="card-body">
+                    <form class='form-group' action="/dish/del_dish/" method="get">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <input type="hidden" name="dish_id" value="{{ j.dish_id }}"/>
+                        <input type="text" name="count">
+                      </div>
+                      <button type="submit" class="btn btn-primary pull-right">删除</button>
+                    </form>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        </span>
+
+        <span class="border border-secondary">
+            <h3>增加菜品：</h3>
+            <form class='form-group' action="/dish/add_dish/" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="text-left"><label for="InputDishName">菜品名</label></div>
+                    {{ dish_form.dish_name}}
+                </div>
+                <div class="form-group">
+                    <div class="text-left"><label for="InputIntro">食材</label></div>
+                    {{ dish_form.dish_intro }}
+                </div>
+                <div class="form-group">
+                    <div class="text-left"><label for="InputPrice">价格</label></div>
+                    {{ dish_form.dish_price }}
+                </div>
+                <div class="form-group">
+                    <div class="text-left"><label for="InputPrice">库存</label></div>
+                    {{ dish_form.dish_store }}
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">增加</button>
+            </form>
+        </span>
+    </div>
+  </div>
+</div>
+{% endblock %}

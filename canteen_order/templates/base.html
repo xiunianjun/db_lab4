@@ -5,6 +5,9 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>校园食堂点餐系统</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -21,30 +24,34 @@
 
 
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
-    <!-- <link rel="stylesheet" href="/static/css/master.css"> -->
-
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="startbootstrap-shop-homepage/dist/css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg bg-dark mynav" role="navigation" id="navbar">
     <div class="container">
         <div class="navbar-nav align-items-center">
-            <a class="navbar-brand mynav" href="#">校园食堂点餐系统</a>
+            <a class="navbar-brand mynav text-white" href="#">校园食堂点餐系统</a>
         </div>
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/canteen/" class="btn btn-simple">食堂</a>
-            <a class="nav-item nav-link" href="/dish/receive_order" class="btn btn-simple">我的订单</a>
+            <a class="nav-item nav-link text-white" href="/canteen/" class="btn btn-simple">食堂</a>
+            <a class="nav-item nav-link text-white" href="/dish/receive_order" class="btn btn-simple">我的订单</a>
         </div>
 
         <div class="navbar-nav ml-auto">
             {% if request.session.is_login %}
-            <a class="nav-item nav-link"  href="#"  class="nav-item nav-link" >当前在线：{{ request.session.user_name }}</a>
-            <a class="nav-item nav-link"  href="/customer/logout/"  class="nav-item nav-link" >登出</a>
+            <a class="nav-item nav-link text-white"  href="#"  class="nav-item nav-link" >当前在线：{{ request.session.user_name }}</a>
+            <a class="nav-item nav-link text-white"  href="/customer/logout/"  class="nav-item nav-link" >登出</a>
             {% else %}
-            <a class="nav-item nav-link" href="/customer/admin_login/" class="nav-item nav-link" >商家登录</a>
-            <a class="nav-item nav-link" href="/admin/" class="nav-item nav-link" >管理员登录</a>
-            <a class="nav-item nav-link" href="/customer/login/" class="nav-item nav-link" >顾客登录</a>
-            <a class="nav-item nav-link" href="/customer/register/" class="btn btn-simple">顾客注册</a>
+            <a class="nav-item nav-link text-white" href="/customer/admin_login/" class="nav-item nav-link" >商家登录</a>
+            <a class="nav-item nav-link text-white" href="/admin/" class="nav-item nav-link" >管理员登录</a>
+            <a class="nav-item nav-link text-white" href="/customer/login/" class="nav-item nav-link" >顾客登录</a>
+            <a class="nav-item nav-link text-white" href="/customer/register/" class="btn btn-simple">顾客注册</a>
             {% endif %}
         </div>
     </div>
@@ -70,6 +77,14 @@
 
 <canvas id="canvas"></canvas>
 
+<!-- Footer-->
+<footer class="bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; xiunianjun 2023</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
 
 <!-- Latest compiled and minified jQuery -->
 <!-- Latest compiled and minified JavaScript -->

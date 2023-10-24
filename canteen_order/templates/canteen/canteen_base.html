@@ -2,25 +2,51 @@
 {% block content %}
 
 <div>
-  <div class="container">
+  <div class="container bg-secondary">
     <div class="row">
       {% for i in canteen_list %}
-        <span class="border border-secondary">
+        <span class="border border-secondary bg-light">
           <h3>这是{{ i.canteen_name }}，有如下窗口，欢迎品尝！</h3>
-          <div class="card-group">
-          {% for j in store_list %}
-          {% if j.canteen_id == i.canteen_id %}
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">{{ j.store_name }}</h5>
-                <a href="/dish/store?store_id={{j.store_id}}" class="btn btn-primary">进入窗口</a>
-              </div>
+          <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                  {% for j in store_list %}
+                  {% if j.canteen_id == i.canteen_id %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img  style="width: 50%; height: 50%; margin: 0 auto;" class="card-img-top" src="https://img0.baidu.com/it/u=3599220188,2504439852&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=800" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ j.store_name }}</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                  <a href="/dish/store?store_id={{j.store_id}}" class="btn btn-primary">进入窗口</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
             </div>
-          {% endif %}
-          {% endfor %}
-          </div>
-          </span>
+        </section>
+      </span>
+      <hr/>
+      <hr/>
       {% endfor %}
     </div>
   </div>

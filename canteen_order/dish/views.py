@@ -45,6 +45,7 @@ def del_order(request):
     global ordered_sum
     global store_id
     if request.method == "GET":
+        is_success = True
         dish_id = int(request.GET.get('dish_id'))
         count = int(request.GET.get('count'))
         for i in range(0, count):
@@ -52,6 +53,7 @@ def del_order(request):
                 ordered_sum = 0
                 ordered_dishes.clear()
                 messages.error(request, "购物车已空")
+                is_success = False
                 break
             try:
                 ordered_dishes.index(Dish.objects.get(dish_id=dish_id).dish_name)
@@ -60,7 +62,8 @@ def del_order(request):
                 print("[DEBUG][POST][STATE]:ordered_sum : {}", ordered_sum)
             except:
                 continue
-        messages.success(request, "操作成功")
+        if is_success:
+            messages.success(request, "操作成功")
     context = {
         'store': store_id,
         'dish_list': Dish.objects.filter(store_id=store_id),

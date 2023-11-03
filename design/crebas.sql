@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2023/10/21 16:11:31                          */
+/* Created on:     2023/10/23 15:42:29                          */
 /*==============================================================*/
 use canteen_order;
 
@@ -11,25 +11,25 @@ use canteen_order;
 -- drop procedure if exists count_store_average_level;
 
 -- alter table cmt 
---    drop foreign key FK_CMT_ORDER_COM_ORDERS;
+   --    drop foreign key FK_CMT_ORDER_COM_ORDERS;
 
 -- alter table dish 
---    drop foreign key FK_DISH_STORE_PRD_STORE;
+   --    drop foreign key FK_DISH_STORE_PRD_STORE;
 
 -- alter table dish_order 
---    drop foreign key FK_DISH_ORD_DISH_ORDE_ORDERS;
+   --    drop foreign key FK_DISH_ORD_DISH_ORDE_ORDERS;
 
 -- alter table dish_order 
---    drop foreign key FK_DISH_ORD_DISH_ORDE_DISH;
+   --    drop foreign key FK_DISH_ORD_DISH_ORDE_DISH;
 
 -- alter table orders 
---    drop foreign key FK_ORDERS_ORDER_USE_USERS;
+   --    drop foreign key FK_ORDERS_ORDER_USE_USERS;
 
 -- alter table orders 
---    drop foreign key FK_ORDERS_STORE_ORD_STORE;
+   --    drop foreign key FK_ORDERS_STORE_ORD_STORE;
 
 -- alter table store 
---    drop foreign key FK_STORE_CANTEEN_S_CANTEEN;
+   --    drop foreign key FK_STORE_CANTEEN_S_CANTEEN;
 
 -- drop 
 -- table if exists canteen_store_dishes_info;
@@ -102,11 +102,15 @@ create table dish_order
 create table orders
 (
    order_id             int not null  comment '',
-   user_id              int not null  comment '',
+   user_name            int not null  comment '',
    store_id             int not null  comment '',
+   user_id              int not null  comment '',
    total                decimal(4,1) not null  comment '',
    create_time          timestamp not null  comment '',
    dish_list            varchar(1024) not null  comment '',
+   order_address              char(128) not null  comment '',
+   tel                  char(11) not null  comment '',
+   order_status         bool not null  comment '',
    primary key (order_id)
 );
 
@@ -148,10 +152,8 @@ create unique index Index_user_name on users
 create table vendor
 (
    vendor_id            int not null  comment '',
-   store_id             int not null  comment '',
    vendor_name          varchar(16) not null  comment '',
-   vendor_psw           varchar(256) not null  comment '',
-   vendor_status        bool not null  comment '',
+   vendor_pwd           varchar(256) not null  comment '',
    primary key (vendor_id)
 );
 

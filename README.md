@@ -1,6 +1,6 @@
 > 特别感谢两位学长：[hewei2001](https://github.com/hewei2001/campus-canteen-ordering/commits?author=hewei2001) [pinskyrobin](https://github.com/pinskyrobin) 留下的参考！
 
-hitsz 2023数据库系统实验3~4，基于Django+Bootstrap+Mysql实现的食堂外送点餐系统。具体效果可见[演示视频](./演示视频.mp4)。
+基于Django+Bootstrap+Mysql实现的食堂外送点餐系统。具体效果可见[演示视频](./演示视频.mp4)。
 
 实现了以下功能（划线部分）：
 

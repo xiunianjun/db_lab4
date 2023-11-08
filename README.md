@@ -13,7 +13,7 @@
 
 由于是速通学习，故而前端界面没有经过雕琢，代码也写得比较乱，一些逻辑也没太严谨，不过主打一个能润（）
 
-简单的运行命令，更具体详见[hewei学长的开发文档](https://hwcoder.top/DB-Project)：
+简单的运行命令：
 
 ```bahs
 python manage.py makemigrations
